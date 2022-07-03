@@ -64,7 +64,6 @@ public class TestMain : MonoBehaviour {
       goalPosition = new Vector2Int(x, y);
     });
 
-    ui.SetupCreateOld(() => CalcAStar(AStartTest1Old));
     ui.SetupCreateNew(() => CalcAStar(AStartTest1New));
   }
 
@@ -102,15 +101,8 @@ public class TestMain : MonoBehaviour {
     }
     for (int i = 0; i < wallCount; ++i) {
       var index = rand.Next(costTable.Length - 1);
-      costTable[index] = Cost.WALL;
+      costTable[index] = AStarMain.COST_WALL;
     }
-  }
-
-  private List<Vector2Int> AStartTest1Old() {
-    var (width, height) = (costTableSize.x, costTableSize.y);
-    var astar = new AStar();
-    astar.Calculate(costTable, width, height, startPosition, goalPosition);
-    return astar.GetResult();
   }
 
   private List<Vector2Int> AStartTest1New() {

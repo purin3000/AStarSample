@@ -6,6 +6,8 @@ using UnityEngine;
 
 namespace astar {
   public class AStarMain {
+    public const int COST_WALL = 99;
+
     private AStarCostTable costTable;
 
     private AStarWorkTable workTable;
@@ -37,7 +39,7 @@ namespace astar {
 
       // 壁をクローズしておく
       costTable.ForEach((x, y, cost) => {
-        if (cost == Cost.WALL) {
+        if (cost == COST_WALL) {
           workTable.GetWork(x, y).CloseNode();
         }
       });

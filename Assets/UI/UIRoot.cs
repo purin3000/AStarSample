@@ -4,25 +4,22 @@ using System;
 
 public class UIRoot : MonoBehaviour {
   [SerializeField]
-  DropdownXY texSize;
+  private DropdownXY texSize;
 
   [SerializeField]
-  DropdownX seed;
+  private DropdownX seed;
 
   [SerializeField]
-  DropdownX wallCount;
+  private DropdownX wallCount;
+
+  [SerializeField] 
+  private DropdownXY startPos;
 
   [SerializeField]
-  DropdownXY startPos;
+  private DropdownXY goalPos;
 
   [SerializeField]
-  DropdownXY goalPos;
-
-  [SerializeField]
-  Button createOld;
-
-  [SerializeField]
-  Button createNew;
+  private Button createNew;
 
   public void SetupTexSize(int minX, int maxX, int minY, int maxY, int xIndex, int yIndex, Action<int, int> listner) {
     texSize.Setup(minX, maxX, minY, maxY, xIndex, yIndex, listner);
@@ -42,10 +39,6 @@ public class UIRoot : MonoBehaviour {
 
   public void SetupGoalPos(int minX, int maxX, int minY, int maxY, int xIndex, int yIndex, Action<int, int> listner) {
     goalPos.Setup(minX, maxX, minY, maxY, xIndex, yIndex, listner);
-  }
-
-  public void SetupCreateOld(Action listner) {
-    SetupButton(createOld, listner);
   }
 
   public void SetupCreateNew(Action listner) {
